@@ -1,6 +1,6 @@
 # CSC 207: Text Editor
 
-**Author**: _(TODO: fill me in)_
+**Author**: Ian Gunn
 
 ## Resources Used
 
