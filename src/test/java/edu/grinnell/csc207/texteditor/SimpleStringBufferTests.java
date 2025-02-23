@@ -16,8 +16,11 @@ public class SimpleStringBufferTests {
         b.insert('h');
         b.insert('e');
         assertEquals("" + 'h' + 'e' + '\u25AE', b.toString());
+        b.moveLeft();
+        b.insert('l');
+        assertEquals("" + 'h' + 'l' + '\u25AE' + 'e', b.toString());
         b.delete();
-        assertEquals("" + 'h' + '\u25AE', b.toString());        
+        assertEquals("" + 'h' + '\u25AE' + 'e', b.toString());        
     } 
 
     @Test
