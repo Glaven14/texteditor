@@ -24,7 +24,7 @@ public class SimpleStringBuffer {
     }
 
     /**
-     * @param ch
+     * @param ch the character to be inserted within the String buffer.
      */
     public void insert(char ch) {
         String front;
@@ -38,7 +38,7 @@ public class SimpleStringBuffer {
     }
 
     /**
-     * 
+     *  removes the character to the left of the cursor from the buffer.
      */
     public void delete() {
         if (this.size > 0) {
@@ -54,12 +54,12 @@ public class SimpleStringBuffer {
 
     /**
      * 
-     * @return
+     * @return the cursors position as an index within the String buffer. 
      */
     public int getCursorPosition() {return cursorPos;}
 
     /**
-     * 
+     * moves cursor to the left of current position in buffer.
      */
     public void moveLeft() {
         if (this.cursorPos > 0) {
@@ -75,7 +75,7 @@ public class SimpleStringBuffer {
     }
 
     /**
-     * 
+     * moves cursor to the right of current position in buffer.
      */
     public void moveRight() {  
         if (this.cursorPos < this.size) {
@@ -92,13 +92,13 @@ public class SimpleStringBuffer {
 
     /**
      * 
-     * @return
+     * @return the number of elements inside the string buffer.
      */
     public int getSize() {return size;}
 
     /**
-     * @param i
-     * @return
+     * @param i the index of the character of interest.
+     * @return the character at index i within the string buffer. 
      */
     public char getChar(int i) {
         if (i < 0 || i > size) {
@@ -107,6 +107,9 @@ public class SimpleStringBuffer {
         return buffer.charAt(i);
     }
 
+    /**
+     * prints the contents of the String buffer/
+     */
     @Override
     public String toString() {return buffer;}
 }

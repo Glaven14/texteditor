@@ -21,6 +21,9 @@ public class GapBuffer {
         buffer[0] = cursor;
     }
 
+    /**
+     * @param ch the character to be inserted within the String buffer.
+     */
     public void insert(char ch) {
         if (cursorStart == cursorEnd) {
             char[] newBuffer = new char[buffer.length * 2];
@@ -38,6 +41,9 @@ public class GapBuffer {
         buffer[cursorStart] = cursor;
     }
 
+    /**
+     *  removes the character to the left of the cursor from the buffer.
+     */
     public void delete() {
         if (cursorStart > 0) {
             cursorStart--;
@@ -45,8 +51,15 @@ public class GapBuffer {
         }
     }
 
+    /**
+     * 
+     * @return the cursors position as an index within the String buffer. 
+     */
     public int getCursorPosition() {return cursorStart;}
 
+    /**
+     * moves cursor to the left of current position in buffer.
+     */
     public void moveLeft() {
         if (cursorStart > 0) {
             cursorEnd--;
@@ -57,6 +70,9 @@ public class GapBuffer {
         }
     }
 
+    /**
+     * moves cursor to the right of current position in buffer.
+     */
     public void moveRight() {
         if (cursorEnd < buffer.length) {
             buffer[cursorStart] = buffer[cursorEnd];
@@ -67,10 +83,18 @@ public class GapBuffer {
         }
     }
 
+    /**
+     * 
+     * @return the number of elements inside the string buffer.
+     */
     public int getSize() { // assuming size is meant to return the number of elements in the array
         return buffer.length - (cursorEnd - cursorStart);
     }
 
+    /**
+     * @param i the index of the character of interest.
+     * @return the character at index i within the string buffer. 
+     */
     public char getChar(int i) {
         if (i < 0 || i > buffer.length) {
             throw new IllegalArgumentException("index is outside the bounds of String");
@@ -78,6 +102,9 @@ public class GapBuffer {
         return buffer[i];
     }
 
+    /**
+     * prints the contents of the String buffer/
+     */
     public String toString() {
         String ret = "";
         for (int i = 0; i < buffer.length; i++) {

@@ -4,9 +4,18 @@
 
 ## Resources Used
 
-+ _(TODO: fill me in)_
-+ ...
-+ ...
++ Project Assignment Page:
+https://osera.cs.grinnell.edu/ttap/data-structures-labs/text-editor.html?search=
++ Wikipedia for a background on Gap Buffers:
+https://en.wikipedia.org/wiki/Gap_buffer 
++ Unicode conversion of the black vertical rectangle:
+https://www.ssec.wisc.edu/~tomw/java/unicode.html
++ Refresher on common String functions like concat and substring:
+https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/lang/String.html#charAt(int)
++ Tips on how to convert a char to a string:
+https://www.digitalocean.com/community/tutorials/convert-char-to-string-java
++ Lab 5: Testing Frameworks by Rex and Ian for the anatomy of a testing suit:
+https://www.gradescope.com/courses/960277/assignments/5750698/submissions/306608280?view=files  
 
 
 ## SimpleStringBuffer Runtime Analysis:
