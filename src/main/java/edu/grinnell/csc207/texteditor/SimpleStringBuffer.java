@@ -1,7 +1,5 @@
 package edu.grinnell.csc207.texteditor;
 
-import java.lang.String;
-
 /**
  * A naive implementation of a text buffer using a <code>String</code>.
  */
@@ -15,7 +13,9 @@ public class SimpleStringBuffer {
 
     private String buffer;
 
-
+    /**
+     * 
+     */
     public SimpleStringBuffer() {
         size = 0;
         cursor = Character.toString('\u25AE');
@@ -53,10 +53,11 @@ public class SimpleStringBuffer {
     }
 
     /**
-     * 
      * @return the cursors position as an index within the String buffer. 
      */
-    public int getCursorPosition() {return cursorPos;}
+    public int getCursorPosition() {
+        return cursorPos;
+    }
 
     /**
      * moves cursor to the left of current position in buffer.
@@ -66,9 +67,12 @@ public class SimpleStringBuffer {
             String front;
             String movingCh;
             String back;
-            front = buffer.substring(0, cursorPos - 1); // Grabs the characters before the one swapping pos with cursor.
-            movingCh =  buffer.substring(cursorPos - 1, cursorPos); // Grabs the character swapping pos with cursor
-            back =  buffer.substring(cursorPos + 1); // Grabs the remaining chararcters after the cursor.
+            //Grabs the characters before the one swapping pos with cursor.
+            front = buffer.substring(0, cursorPos - 1); 
+            //Grabs the character swapping pos with cursor
+            movingCh = buffer.substring(cursorPos - 1, cursorPos);
+            //Grabs the remaining chararcters after the cursor. 
+            back = buffer.substring(cursorPos + 1); 
             buffer = front.concat(cursor).concat(movingCh).concat(back);
             cursorPos--;
         }
@@ -82,19 +86,23 @@ public class SimpleStringBuffer {
             String front;
             String movingCh;
             String back;
-            front = buffer.substring(0, cursorPos); // Grabs the characters before the cursor.
-            movingCh =  buffer.substring(cursorPos + 1, cursorPos + 2); // Grabs the character swapping pos with cursor
-            back =  buffer.substring(cursorPos + 2); // Grabs the remaining chararcters after the cursor.
+            //Grabs the characters before the cursor.
+            front = buffer.substring(0, cursorPos); 
+            //Grabs the character swapping pos with cursor
+            movingCh = buffer.substring(cursorPos + 1, cursorPos + 2); 
+            //Grabs the remaining chararcters after the cursor.
+            back = buffer.substring(cursorPos + 2); 
             buffer = front.concat(movingCh).concat(cursor).concat(back);
             cursorPos++;
         }
     }
 
     /**
-     * 
      * @return the number of elements inside the string buffer.
      */
-    public int getSize() {return size;}
+    public int getSize() {
+        return size;
+    }
 
     /**
      * @param i the index of the character of interest.
@@ -111,5 +119,7 @@ public class SimpleStringBuffer {
      * prints the contents of the String buffer/
      */
     @Override
-    public String toString() {return buffer;}
+    public String toString() {
+        return buffer;
+    }
 }

@@ -16,6 +16,8 @@ https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/lang/String.ht
 https://www.digitalocean.com/community/tutorials/convert-char-to-string-java
 + Lab 5: Testing Frameworks by Rex and Ian for the anatomy of a testing suit:
 https://www.gradescope.com/courses/960277/assignments/5750698/submissions/306608280?view=files  
++ Help from PM figuring out command line errors (a space between exec: and java that shouldn't
+be there and how to run checkstyle with mvn checkstyle:check).
 
 
 ## SimpleStringBuffer Runtime Analysis:

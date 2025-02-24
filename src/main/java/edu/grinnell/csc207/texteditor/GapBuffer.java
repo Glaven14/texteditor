@@ -13,6 +13,9 @@ public class GapBuffer {
 
     private char[] buffer;
 
+    /**
+     * 
+     */
     public GapBuffer() {
         cursor = '\u25AE';
         cursorStart = 0;
@@ -52,10 +55,11 @@ public class GapBuffer {
     }
 
     /**
-     * 
      * @return the cursors position as an index within the String buffer. 
      */
-    public int getCursorPosition() {return cursorStart;}
+    public int getCursorPosition() {
+        return cursorStart;
+    }
 
     /**
      * moves cursor to the left of current position in buffer.
@@ -84,7 +88,6 @@ public class GapBuffer {
     }
 
     /**
-     * 
      * @return the number of elements inside the string buffer.
      */
     public int getSize() { // assuming size is meant to return the number of elements in the array
@@ -103,7 +106,7 @@ public class GapBuffer {
     }
 
     /**
-     * prints the contents of the String buffer/
+     * @return the contents of the String buffer
      */
     public String toString() {
         String ret = "";

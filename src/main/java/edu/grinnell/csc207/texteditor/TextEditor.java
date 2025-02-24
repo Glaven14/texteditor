@@ -47,13 +47,12 @@ public class TextEditor {
         Screen screen = new DefaultTerminalFactory().createScreen();
         GapBuffer buffer = new GapBuffer();
 
-       long size = Files.size(paths);
-       String fileContent = "";
+        long size = Files.size(paths);
+        String fileContent = "";
 
-       screen.startScreen();
+        screen.startScreen();
 
-       if (size > 0) {
-        System.out.println("Reading");
+        if (size > 0) {
             fileContent = Files.readString(paths);
             for (int i = 0; i < size; i++) {
                 buffer.insert(fileContent.charAt(i));
@@ -62,9 +61,9 @@ public class TextEditor {
                                     TextCharacter.fromCharacter(fileContent.charAt(i))[0]);
                 drawBuffer(buffer, screen);
             }
-       } else {
+        } else {
             boolean write = true;
-       }
+        }
 
 
 
@@ -77,21 +76,17 @@ public class TextEditor {
                 screen.setCharacter(buffer.getCursorPosition(), 
                                     0,
                                     TextCharacter.fromCharacter(key.getCharacter())[0]);
-            }
-            else if(KeyType.ArrowLeft.equals(keyStroke)) {
+            } else if (KeyType.ArrowLeft.equals(keyStroke)) {
                 buffer.moveLeft();
                 
-            }
-            else if(KeyType.ArrowRight.equals(keyStroke)) {
+            } else if (KeyType.ArrowRight.equals(keyStroke)) {
                 buffer.moveRight();
-            }
-            else if(KeyType.Backspace.equals(keyStroke)) {
+            } else if (KeyType.Backspace.equals(keyStroke)) {
                 buffer.delete();
                 screen.setCharacter(buffer.getCursorPosition() + 1, 
                                     0,
                                     TextCharacter.fromCharacter('\u0020')[0]); 
-            }
-            else if(KeyType.Escape.equals(keyStroke)) {
+            } else if (KeyType.Escape.equals(keyStroke)) {
                 Files.writeString(paths, buffer.toString());
                 screen.stopScreen();
                 System.exit(1);
@@ -102,8 +97,8 @@ public class TextEditor {
     }
 
 
-   static void drawBuffer(GapBuffer buf, Screen screen) throws IOException {
+    static void drawBuffer(GapBuffer buf, Screen screen) throws IOException {
         screen.setCursorPosition(new TerminalPosition(buf.getCursorPosition() + 1, 0));
         screen.refresh();
-   }
+    }
 }
