@@ -17,11 +17,14 @@ public class GapBuffer {
      * 
      */
     public GapBuffer() {
-        cursor = '\u25AE';
+        cursor = '\u0020';
         cursorStart = 0;
         cursorEnd = 9;
         buffer = new char[10];
-        buffer[0] = cursor;
+        for (int i = 0; i < buffer.length; i++) {
+            buffer[i] = ' ';
+        }
+        //buffer[0] = '\0'; //cursor;
     }
 
     /**
@@ -33,15 +36,15 @@ public class GapBuffer {
             for (int i = 0; i < cursorStart; i++) {
                 newBuffer[i] = buffer[i];
             }
-            for (int i = cursorEnd + buffer.length; i < newBuffer.length; i++) {
-                newBuffer[i] = buffer[i - buffer.length];
+            for (int i = cursorEnd; i < buffer.length; i++) {
+                newBuffer[i + buffer.length] = buffer[i];
             }
             cursorEnd += buffer.length;
             buffer = newBuffer;
         }
-        buffer[cursorStart] = ch;
-        cursorStart++;
-        buffer[cursorStart] = cursor;
+        
+        buffer[cursorStart++] = ch;
+        buffer[cursorStart] = '\u0020';
     }
 
     /**
@@ -50,7 +53,7 @@ public class GapBuffer {
     public void delete() {
         if (cursorStart > 0) {
             cursorStart--;
-            buffer[cursorStart] = cursor;
+            buffer[cursorStart] = ' '; //cursor;
         }
     }
 
@@ -67,10 +70,10 @@ public class GapBuffer {
     public void moveLeft() {
         if (cursorStart > 0) {
             cursorEnd--;
-            buffer[cursorStart] = '\0';
             cursorStart--;
             buffer[cursorEnd] = buffer[cursorStart];
-            buffer[cursorStart] = cursor;
+            buffer[cursorStart] = ' ';
+            //buffer[cursorStart] = cursor;
         }
     }
 
@@ -78,12 +81,11 @@ public class GapBuffer {
      * moves cursor to the right of current position in buffer.
      */
     public void moveRight() {
-        if (cursorEnd < buffer.length) {
+        if (cursorEnd < buffer.length - 1) {
             buffer[cursorStart] = buffer[cursorEnd];
             cursorStart++;
-            buffer[cursorEnd] = '\0';
+            buffer[cursorEnd] = ' ';
             cursorEnd++;
-            buffer[cursorStart] = cursor;
         }
     }
 
@@ -91,7 +93,7 @@ public class GapBuffer {
      * @return the number of elements inside the string buffer.
      */
     public int getSize() { // assuming size is meant to return the number of elements in the array
-        return buffer.length - (cursorEnd - cursorStart);
+        return buffer.length - (cursorEnd - cursorStart) - 1;
     }
 
     /**
@@ -110,9 +112,9 @@ public class GapBuffer {
      */
     public String toString() {
         String ret = "";
-        for (int i = 0; i < buffer.length; i++) {
-            if (i < cursorStart || i > cursorEnd) {
-                ret.concat(buffer[i] + "");
+        for (int i = 0; i < buffer.length - 1; i++) {
+            if (i <= cursorStart || i >= cursorEnd) {
+                ret += buffer[i];
             }
         }
         return ret;

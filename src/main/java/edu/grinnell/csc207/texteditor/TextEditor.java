@@ -26,7 +26,7 @@ public class TextEditor {
         //String[] arg =  new String[1];
         //arg[0] = "randfile.txt";
         //args = arg;
-        if (args.length != 1) {
+        if (args.length < 1) {
             System.err.println("Usage: java TextEditor <filename>");
             System.exit(1);
         }
