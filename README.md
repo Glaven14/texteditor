@@ -49,5 +49,4 @@ However, if the backing array is full, we must make a new array twice its size a
 to a worst case runtime that is linear. This second case doesn't happen very often tho, so it is more efficient than SimpleStringBuffer.
 
 ## Changelog
-
-_(TODO: fill me in with a log of your committed changes)_
+Full Changelog: https://github.com/Glaven14/texteditor/commits/newTag
